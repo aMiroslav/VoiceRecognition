@@ -70,8 +70,8 @@ with open("summary_BART.txt", "w") as f:
 ```
 
 ### 3. Panaudojimas su pavyzdžiais
-Testavimui buvo panaudotas straipsnis iš 15min.lt portalo. Straipsnis įgarsintas, vėliau garso įrašas pateiktas teksto atpažinimo programai. Nuskaitytas tekstas pateiktas output.txt faile. Gautos santraukos pateiktos atitinkamai summary_BART.txt ir summary_T5LT.txt failuose.
+Testavimui buvo panaudotas straipsnis iš 15min.lt portalo. Straipsnis įgarsintas, vėliau garso įrašas (failas **ITStraipsnis.mp3**) pateiktas teksto atpažinimo programai. Nuskaitytas tekstas pateiktas **output.txt** faile. Gautos santraukos pateiktos atitinkamai **summary_BART.txt** ir **summary_T5LT.txt** failuose.
 
 
 ### 4. Išvados
-Apibendrinant gautą rezultatą galima pasakyti, kad lietuvių kalbai pritaikytas T5 modelis su užduotimi susidorojo geriau, gautas rišlesnis ir sklandesnis rezultatas. Rezultato tikslumui įtaką daro ir pirminis žingsnis - garso įrašo konvertavimas į tekstą. Atidžiau peržvelgus sugeneruotą tekstą, galima pastabėti, kad yra tam tikrų gramatinių klaidų bei netiksliai atpažintų žodžių. Tai neabejotinai daro įtaką ir galutiniam rezultati.
+Apibendrinant gautą rezultatą galima pasakyti, kad lietuvių kalbai pritaikytas **T5** modelis su užduotimi susidorojo geriau, gautas rišlesnis ir sklandesnis rezultatas. Rezultato tikslumui įtaką daro ir pirminis žingsnis - garso įrašo konvertavimas į tekstą. Atidžiau peržvelgus sugeneruotą tekstą, galima pastabėti, kad yra tam tikrų gramatinių klaidų bei netiksliai atpažintų žodžių. Tai neabejotinai daro įtaką ir galutiniam rezultati.
