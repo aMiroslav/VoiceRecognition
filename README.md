@@ -40,7 +40,7 @@ with open("output.txt", "w") as f:
 
 ### 2. Teksto santraukos generavimas
 
-Užduočiai atlikti buvo pasitelkti du modeliai: BART ir T5 (apmokytu lietuviškais duomenimis). Abo modeliai veikė pagal tą patį principą. Vėl buvo panaudotą „Transformers“ biblioteka ir **pipeline** funkcija. Santraukos generavimui atidaromas ir nuskaitomas prieš tai sugeneruotas tekstinis failas. Nustatomi tam tikri parametrai (maksimalus ir minimalus ilgiai it kt.). Galiausiai santrauka atspausdinama ir išsaugoma tekstinio failo pavidalu. 
+Užduočiai atlikti buvo pasitelkti du modeliai: [BART] (https://huggingface.co/facebook/bart-large-cnn) ir [T5] (https://huggingface.co/LukasStankevicius/t5-base-lithuanian-news-summaries-175), apmokytu lietuviškais duomenimis. Abo modeliai veikė pagal tą patį principą. Vėl buvo panaudotą „Transformers“ biblioteka ir **pipeline** funkcija. Santraukos generavimui atidaromas ir nuskaitomas prieš tai sugeneruotas tekstinis failas. Nustatomi tam tikri parametrai (maksimalus ir minimalus ilgiai it kt.). Galiausiai santrauka atspausdinama ir išsaugoma tekstinio failo pavidalu. 
 
 #### Pavyzdinis kodo fragmentas:
 ```python
