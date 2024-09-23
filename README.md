@@ -38,9 +38,40 @@ with open("output.txt", "w") as f:
     f.write(result["text"])
 ```
 
-Antrojoje dalyje gautą tekstą turime apdoroti ir paruošti jo santrauką. tai užduočiai atlikti buvo pasitelkti du modeliai: BART ir T5 (apmokytu lietuviškais duomenimis). Abo modeliai veikė pagal tą patį principą. Vėl buvo panaudotą transformers
-biblioteka ir pipeline funkcija. Santraukos generavimui atidaromas ir nuskaitomas prieš tai sugeneruotas tekstinis failas. Nustatomi tam tikri parametrai (maksimalus ir minimalus ilgiai it kt.). Galiausiai santrauka atspausdinama ir išsaugoma tekstinio failo pavidalu. 
+### 2. Teksto santraukos generavimas
 
+Užduočiai atlikti buvo pasitelkti du modeliai: BART ir T5 (apmokytu lietuviškais duomenimis). Abo modeliai veikė pagal tą patį principą. Vėl buvo panaudotą „Transformers“ biblioteka ir **pipeline** funkcija. Santraukos generavimui atidaromas ir nuskaitomas prieš tai sugeneruotas tekstinis failas. Nustatomi tam tikri parametrai (maksimalus ir minimalus ilgiai it kt.). Galiausiai santrauka atspausdinama ir išsaugoma tekstinio failo pavidalu. 
+
+#### Pavyzdinis kodo fragmentas:
+```python
+from transformers import pipeline
+
+# BART modelio įkelimas
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+# Tekstinio failo nuskaitymas
+with open("output.txt", "r") as f:
+    text_to_summarize = f.read()
+
+# Santraukos generavimas, nurodant parametrus
+summary = summarizer(
+    text_to_summarize,
+    max_length=150,
+    min_length=60,
+    do_sample=False,
+    num_beams=4,
+    length_penalty=2
+)
+print(summary[0]['summary_text'])
+
+# Santraukos išsaugojimas
+with open("summary_BART.txt", "w") as f:
+    f.write(summary[0]["summary_text"])
+```
+
+### 3. Panaudojimas su pavyzdžiais
 Testavimui buvo panaudotas straipsnis iš 15min.lt portalo. Straipsnis įgarsintas, vėliau garso įrašas pateiktas teksto atpažinimo programai. Nuskaitytas tekstas pateiktas output.txt faile. Gautos santraukos pateiktos atitinkamai summary_BART.txt ir summary_T5LT.txt failuose.
 
-Apibendrinant gautą rezultatą galima pasakyti, kad lietuvių kalbai pritaikytas T5 modelis su užduotimi susidorojo geriau, gautas rišlesnis ir sklandesnis rezultatas.
+
+### 4. Išvados
+Apibendrinant gautą rezultatą galima pasakyti, kad lietuvių kalbai pritaikytas T5 modelis su užduotimi susidorojo geriau, gautas rišlesnis ir sklandesnis rezultatas. Rezultato tikslumui įtaką daro ir pirminis žingsnis - garso įrašo konvertavimas į tekstą. Atidžiau peržvelgus sugeneruotą tekstą, galima pastabėti, kad yra tam tikrų gramatinių klaidų bei netiksliai atpažintų žodžių. Tai neabejotinai daro įtaką ir galutiniam rezultati.
